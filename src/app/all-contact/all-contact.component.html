@@ -1,0 +1,59 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <!-- heading -->
+            <h1>Online Contact Application
+                <!-- add button -->
+                <a class="btn btn-dark ms-5" routerLink="add-contact">
+                <i class="fa-sharp fa-solid fa-user-plus"></i> 
+                Add New
+                </a>
+             </h1>
+             <p style="text-align: justify;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur repudiandae recusandae accusamus nihil amet qui culpa autem, praesentium asperiores quia? Saepe, ullam vero? Nisi, vitae atque magni sunt repellendus error?Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos impedit magni voluptates? Ad voluptate numquam totam aliquam. Aut ipsa tempora cupiditate omnis, ipsum eaque, voluptas voluptatibus quam quia debitis error. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel voluptatum officia, ex dolores modi aliquam. Suscipit, consequatur id distinctio quam alias esse voluptates quod, ipsam illum voluptatum dignissimos architecto repellendus?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat commodi sequi, est natus optio dolorem, quidem porro quisquam iure nostrum consequuntur harum mollitia maxime adipisci nisi fugiat tempore earum. Laudantium!Lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus modi animi atque corrupti expedita beatae voluptate, qui et illo repellendus quisquam ducimus. Nobis aperiam deserunt, adipisci error temporibus qui iure?
+            </p>
+            <!-- search box -->
+            <div class="row mt-4">
+                <div class="col-lg-6">
+                    <input type="text" class="form-control" placeholder="Search contact here" [(ngModel)]="searchContact">
+                </div>
+                <div class="col-lg-6"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- card design -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 mb-3" *ngFor="let contact of allcontacts |filter :searchContact :'name'">
+            <div class="card" >
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 text-center">
+                            <!-- img -->
+                            <img class="contact_image" [src]="contact.photo" alt="connect internet">
+                        </div>
+                        <div class="col-md-7">
+                            <!-- contact details -->
+                            <ul class="list-group ">
+                                <li class="list-group-item">Name: <span class="fw-bolder">{{contact.name}}</span></li>
+                                <li class="list-group-item">Mobile: <span class="fw-bolder">{{contact.mobile}}</span></li>
+                                <li class="list-group-item">Email: <span class="fw-bolder">{{contact.email}}</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-1 d-flex flex-column justify-content-center align-items-center">
+                            <!-- actions -->
+                            <!-- view -->
+                            <a routerLink="view-contact/{{contact.id}}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
+                            <!-- edit -->
+                            <a routerLink="edit-contact//{{contact.id}}" class="btn btn-warning mt-1 mb-1"><i class="fa-solid fa-pen"></i></a>
+                            <!-- delete -->
+                            <button (click)="deleteContact(contact.id)" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div >
+            </div>
+        </div>
+        <div class="col-md-6"></div>
+    </div>
+</div>

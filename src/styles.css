@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Poppins:wght@500&family=VT323&family=Work+Sans:wght@500&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+.contact_image{
+    width: 100px;
+    height: 100px;
+}
